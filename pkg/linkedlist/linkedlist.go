@@ -4,19 +4,19 @@ import "fmt"
 
 // Node represents a node in the linked list.
 type Node struct {
-	data int     // Data stored in the node.
-	next *Node  // Pointer to the next node.
+	Data int   // Data stored in the node.
+	next *Node // Pointer to the next node.
 }
 
 // LinkedList represents a singly linked list.
 type LinkedList struct {
-	head *Node  // Pointer to the head node.
-	len  int    // Length of the linked list.
+	head *Node // Pointer to the head node.
+	len  int   // Length of the linked list.
 }
 
 // NewNode creates a new node with the given data and a nil next pointer.
 func NewNode(data int) *Node {
-	return &Node{data: data, next: nil}
+	return &Node{Data: data, next: nil}
 }
 
 // NewLinkedList creates a new empty linked list with a nil head pointer and a length of 0.
@@ -24,26 +24,27 @@ func NewLinkedList() *LinkedList {
 	return &LinkedList{head: nil, len: 0}
 }
 
-// Prepend adds a new node with the given data to the beginning of the linked list.
-func (l *LinkedList) Prepend(data int) {
+// Prepend adds a new node to the beginning of the linked list and returns the new node.
+func (l *LinkedList) Prepend(data int) *Node {
 	newNode := NewNode(data)
 	if l.head == nil {
 		l.head = newNode
 		l.len++
-		return
+		return newNode
 	}
 	newNode.next = l.head
 	l.head = newNode
 	l.len++
+	return newNode
 }
 
-// Append adds a new node with the given data to the end of the linked list.
-func (l *LinkedList) Append(data int) {
+// Append adds a new node to the end of the linked list and returns the new node.
+func (l *LinkedList) Append(data int) *Node {
 	newNode := NewNode(data)
 	if l.head == nil {
 		l.head = newNode
 		l.len++
-		return
+		return newNode
 	}
 	current := l.head
 	for current.next != nil {
@@ -51,6 +52,7 @@ func (l *LinkedList) Append(data int) {
 	}
 	current.next = newNode
 	l.len++
+	return newNode
 }
 
 // DeleteAt deletes the node at the specified position in the linked list.
@@ -80,9 +82,15 @@ func (l *LinkedList) Display() string {
 	}
 	current := l.head
 	for current != nil {
-		result += fmt.Sprintf("%d -> ", current.data)
+		result += fmt.Sprintf("%d -> ", current.Data)
 		current = current.next
 	}
 	result += "nil"
 	return result
 }
+
+// Len returns the length of the linked list.
+func (l *LinkedList) Len() int { return l.len }
+
+// Head returns the head node of the linked list.
+func (l *LinkedList) Head() *Node { return l.head }
