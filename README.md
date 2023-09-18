@@ -5,10 +5,10 @@ This project is a collection of data structures implemented in the Go programmin
 ## Table of Contents
 
 - [Data Structures in Go](#data-structures-in-go)
-  - [Table of Contents](#table-of-contents)
-  - [Introduction](#introduction)
-  - [Data Structures](#data-structures)
-  - [Usage](#usage)
+- [Table of Contents](#table-of-contents)
+- [Introduction](#introduction)
+- [Data Structures](#data-structures)
+- [Usage](#usage)
 
 ## Introduction
 
@@ -19,12 +19,12 @@ Data structures are the building blocks of any software application. They provid
 The following data structures are currently implemented in this project:
 
 - [x] Linked List
+- [x] Doubly Linked List
+- [x] Circular Linked List
+- [x] Doubly Circular Linked List
 - [x] Stack
 - [x] Queue
-- [x] Binary Tree
-- [x] Hash Table
-- [x] Graph (coming soon)
-- [x] ...
+- [x] ... more coming soon!
 
 Each data structure is located in its respective directory within the project. You can explore each data structure's implementation and documentation to understand how to use them effectively.
 
